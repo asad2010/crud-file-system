@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nice</title>
+</head>
+<body>
+    <form action="/add" method="post" style="display: flex; flex-direction: column; width: 400px;gap: 20px; margin: 20px auto">
+        <h2 style="text-align:center">Add User</h2>
+        <input style="padding-left: 10px;height: 40px; border-radius: 1rem; background: none; border: 1px solid gray;" type="text" name="name" placeholder="name" required>
+        <input style="padding-left: 10px;height: 40px; border-radius: 1rem; background: none; border: 1px solid gray;" type="email" name="email" placeholder="email" required>
+        <input style="padding-left: 10px;height: 40px; border-radius: 1rem; background: none; border: 1px solid gray;" type="password" name="password" placeholder="password" required>
+        <button  style="padding-left: 10px;height: 40px; border-radius: 1rem; background: none; border: 1px solid gray; cursor: pointer;"type="submit">Submit</button>
+    </form>
+    <h1 style="text-align: center; margin-top: 30px;">Users List</h1>
+    <div style="display: flex; flex-wrap:wrap; gap: 50px">
+        
+        <% data.forEach((el,i)=>{ %>
+            <div style="background: linear-gradient(red, purple, pink); padding: 20px; width: 300px; color: White">
+                <h2><%= el.id %></h2>
+                <h1><%= el.name %></h1>
+                <h2><%= el.email %></h2>
+                <h3><%= el.password %></h3>
+                <a href="/delete/<%= el.id %>">Delete</a>
+                <a href="/edit/<%= el.id %>">Edit</a>
+
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
